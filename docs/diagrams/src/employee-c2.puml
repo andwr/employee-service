@@ -3,10 +3,9 @@
 
 title Сервис Employee
 
-Boundary(org,"Организация") {
-    Person_Ext(person, "Пользователь")
-    System_Ext(client, "Клиент")
-    }
+Person_Ext(person, "Пользователь")
+System_Ext(client, "Клиент")
+
 Boundary(infra,"Инфраструктурные сервисы") {
     Container(employee, "Employee",WebAPI,"Управление данными сотрудников")
     ContainerDb(db,"Database",,employee.persons\nemployee.positions\nemployee.roles\n)
