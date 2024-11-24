@@ -1,0 +1,21 @@
+@startuml
+!include <c4/C4_Container.puml>
+
+title Сервис Employee
+
+Boundary(org,"Организация") {
+    Person_Ext(person, "Пользователь")
+    System_Ext(client, "Клиент")
+    }
+Boundary(infra,"Инфраструктурные сервисы") {
+    Container(employee, "Employee",WebAPI,"Управление данными сотрудников")
+    ContainerDb(db,"Database",,employee.persons\nemployee.positions\nemployee.roles\n)
+    System_Ext(misc,"Другие сервисы")
+    }
+
+Rel_R(person,client,"Управление сотрудниками",GUI)
+Rel_R(client,employee,"Uses", HTTP)
+Rel_L(misc,employee,"Uses",REST API)
+Rel(employee,db,"Хранение данных сервиса")
+
+@enduml

@@ -1,0 +1,32 @@
+site_name:  Сервис Employee
+theme:
+  name: material
+  language: ru
+markdown_extensions:
+  - pymdownx.critic
+  - toc:
+      permalink: true
+      toc_depth: 4
+  - attr_list
+  - admonition # https://squidfunk.github.io/mkdocs-material/setup/extensions/python-markdown/?h=markdown#admonition
+  - pymdownx.details
+  - pymdownx.superfences
+  - pymdownx.tasklist: # https://squidfunk.github.io/mkdocs-material/reference/lists/
+      custom_checkbox: false
+  - pymdownx.tabbed: # https://squidfunk.github.io/mkdocs-material/setup/extensions/python-markdown-extensions/#tabbed
+      alternate_style: true
+  - pymdownx.emoji:
+      emoji_index: !!python/name:materialx.emoji.twemoji
+      emoji_generator: !!python/name:materialx.emoji.to_svg
+plugins:
+  - search
+  - build_plantuml:
+      render: 'server' # or "local" for local rendering
+      bin_path: '/usr/local/bin/plantuml' # ignored when render: server
+      server: 'http://www.plantuml.com/plantuml' # official plantuml server
+      disable_ssl_certificate_validation: true # for self-signed and invalid certs
+      output_format: 'svg' # or "png"
+      diagram_root: 'docs/diagrams' # should reside under docs_dir
+      output_folder: 'out'
+      input_folder: 'src'
+      input_extensions: 'puml' # comma separated list of extensions to parse, by default every file is parsed
