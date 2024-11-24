@@ -1,3 +1,8 @@
+---
+hide:
+  - navigation
+---
+
 # Сервис Employee
 
 !!! note "Документ в разработке"
