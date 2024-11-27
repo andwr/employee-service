@@ -1,0 +1,13 @@
+@startuml
+
+skinparam linetype ortho
+left to right direction
+
+entity Person
+entity Position
+entity Role
+
+Person }o-u-|| Position
+Person }o--o{ Role
+
+@enduml
